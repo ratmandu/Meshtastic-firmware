@@ -107,6 +107,11 @@
 #include "modules/DropzoneModule.h"
 #endif
 
+#ifdef HAS_IFF
+#include "modules/IFF.h"
+#endif
+
+
 /**
  * Create module instances here.  If you are adding a new module, you must 'new' it here (or somewhere else)
  */
@@ -170,6 +175,9 @@ void setupModules()
 #endif
 #if !MESHTASTIC_EXCLUDE_POWERSTRESS
     new PowerStressModule();
+#endif
+#if HAS_IFF
+    iffModule = new IFFModule();
 #endif
     // Example: Put your module here
     // new ReplyModule();
@@ -298,6 +306,7 @@ void setupModules()
     if (moduleConfig.has_range_test && moduleConfig.range_test.enabled)
         new RangeTestModule();
 #endif
+
     // NOTE! This module must be added LAST because it likes to check for replies from other modules and avoid sending extra
     // acks
     routingModule = new RoutingModule();

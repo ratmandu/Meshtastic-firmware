@@ -60,3 +60,11 @@
 
 // Vibration
 #define PIN_VIBRATION 21
+
+// IFF
+#define HAS_IFF 1
+#define IFF_IR1 39
+#define IFF_IR2 38
+#define IFF_IR3 37
+
+
